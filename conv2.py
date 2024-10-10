@@ -91,6 +91,23 @@ def convolve_resamp(data_lr,data_hr,info_lr,info_hr):
     data_lr_centered = data_lr['jy/pixel'][0,0,y-w:y+w,x-w:x+w]
     reproj_hr_pixel_centered = reproj_hr_pixel_norm[0,0,position_conv[1]-w:position_conv[1]+w,position_conv[0]-w:position_conv[0]+w]
 
+    print(data_lr['jy/beam'].shape)
+    plt.imshow(data_lr['jy/beam'])
+    err=5
+    plt.plot(info_lr['position'][0],info_lr['position'][1],'rx')
+    plt.plot(443.16,439.41,'bx')
+    plt.xlim(info_lr['position'][0]-err,info_lr['position'][0]+err)
+    plt.ylim(info_lr['position'][1]-err,info_lr['position'][1]+err)
+    plt.show()
+
+    print(data_lr['jy/beam'].shape)
+    plt.imshow(data_lr['jy/beam'])
+    err=5
+    plt.plot(info_lr['position'][0],info_lr['position'][1],'rx')
+    plt.plot(443.16,439.41,'bx')
+    plt.xlim(info_lr['position'][0]-err,info_lr['position'][0]+err)
+    plt.ylim(info_lr['position'][1]-err,info_lr['position'][1]+err)
+    plt.show()
 
     csm = data_lr_centered - (reproj_hr_pixel_centered)
 

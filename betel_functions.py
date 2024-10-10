@@ -143,5 +143,17 @@ def radial_read(filename,w,x2=0,y2=0):
     return data, info, rp, rp_radius, radius_2d
 
 
+def radius2d(data):
+    ### RADIUS DATA IN 2D
+    dimensions = data.shape
+    rows,columns = dimensions
+    radius_2d = np.array([[0.0]*columns]*rows)
+    x = rows/2
+    y = rows/2
+    for i in range(rows):
+        for j in range(columns):
+            c = (x-i)**2+(y-j)**2
+            radius_2d[i,j] = np.sqrt(c)
 
+    return radius_2d
 
